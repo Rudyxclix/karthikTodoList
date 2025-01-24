@@ -140,16 +140,35 @@ function App() {
               label="Priority Level"
               className="mb-3"
             >
-              <Form.Control onChange={e => setTaskDetails({ ...taskDetails, priorityLevel: e.target.value })} type="text" placeholder="Priority Level" />
+              <Form.Select
+                onChange={(e) =>
+                  setTaskDetails({ ...taskDetails, priorityLevel: e.target.value })
+                }
+                value={taskDetails.priorityLevel}
+              >
+                <option value="" selected hidden>Select Priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </Form.Select>
             </FloatingLabel>
+
 
             <FloatingLabel
               controlId="floatingStatus"
               label="Completion Status"
               className="mb-3"
             >
-              <Form.Control onChange={e => setTaskDetails({ ...taskDetails, completionStatus: e.target.value })} type="text" placeholder="completion status" />
+              <Form.Select
+                onChange={e => setTaskDetails({ ...taskDetails, completionStatus: e.target.value })}
+                value={taskDetails.completionStatus}
+              >
+                <option value="" selected hidden>Select Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Done">Done</option>
+              </Form.Select>
             </FloatingLabel>
+
           </Form>
         </Modal.Body>
         <Modal.Footer>
